@@ -125,4 +125,13 @@ h1 {
 }
 
 
-
+.no-profile-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0CD977;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+}
