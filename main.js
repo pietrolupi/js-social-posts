@@ -109,10 +109,18 @@ for(let i = 1; i <= posts.length; i++){
     btnLike.addEventListener('click', likeClick)
     
     function likeClick(){
-        btnLike.classList.add('like-button--liked');
+
+        if(likedList.includes(i)){
+            likeCounter.innerHTML --;
+            btnLike.classList.remove('like-button--liked');
+            let toRemove = likedList.indexOf(i);
+            likedList.splice(toRemove, 1)
+        }else{
+            btnLike.classList.add('like-button--liked');
         likeCounter.innerHTML ++;
-        this.removeEventListener('click', likeClick);
-        
+        likedList.push(i);
+        console.log(likedList)
+        } 
     }
 }
 
