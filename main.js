@@ -62,9 +62,12 @@ const postsContainer = document.getElementById('container');
 posts.forEach((post)=>{
 
     let profilePic;
+    const fullNameArray = post.author.name.split(' ')
+    const name = fullNameArray[0].charAt(0)
+    const surname = fullNameArray[1].charAt(0)
 
     if(post.author.image === null){
-        profilePic = `<div class="no-profile-pic">CIAO</div>`
+        profilePic = `<div class="no-profile-pic">${name} ${surname}</div>`
     }else{
         profilePic = `<img class="profile-pic" src="${post.author.image}" alt="Phil Mangione"> `
     };
