@@ -61,9 +61,6 @@ const postsContainer = document.getElementById('container');
 
 posts.forEach((post)=>{
 
-    for(let item in post.author){
-        console.log(item)
-    }
 
     postsContainer.innerHTML += `
     <div class="post">
@@ -85,16 +82,36 @@ posts.forEach((post)=>{
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#" data-postid="1">
+                <a id="like-btn-${post.id}" class="like-button  js-like-button" href="#0" data-postid="1">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                Piace a <b id="like-counter-${post.id}" class="js-likes-counter">80</b> persone
             </div>
         </div> 
     </div>            
 </div>
      `
+
 })
+
+
+
+
+
+for(let i = 1; i <= posts.length; i++){
+    
+    let btnLike = document.getElementById('like-btn-'+ i)
+    let likeCounter = document.getElementById('like-counter-' + i)
+
+    btnLike.addEventListener('click', likeClick)
+    
+    function likeClick(){
+        btnLike.classList.add('like-button--liked');
+        likeCounter.innerHTML ++;
+        this.removeEventListener('click', likeClick);
+    }
+}
+
