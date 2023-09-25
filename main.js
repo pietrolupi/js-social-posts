@@ -61,13 +61,23 @@ const postsContainer = document.getElementById('container');
 
 posts.forEach((post)=>{
 
-    let profilePic;
-    const fullNameArray = post.author.name.split(' ')
-    const name = fullNameArray[0].charAt(0)
-    const surname = fullNameArray[1].charAt(0)
+    //Prendo la data e la trasformo in formato europeo
+    const dateArray =  post.created.split('-')
+    const europeanDate = dateArray.reverse().join('-')
 
+    //imposto una let profilePic che stamperà elementi diversi (o foto, o se non c'è placeholder)
+    let profilePic;
+    
+    //controllo se è presente l'immagine o no
     if(post.author.image === null){
+        
+        //prendo le iniziali del nome e del cognome 
+
+        const fullNameArray = post.author.name.split(' ')
+        const name = fullNameArray[0].charAt(0)
+        const surname = fullNameArray[1].charAt(0)
         profilePic = `<div class="no-profile-pic">${name} ${surname}</div>`
+
     }else{
         profilePic = `<img class="profile-pic" src="${post.author.image}" alt="Phil Mangione"> `
     };
@@ -82,7 +92,7 @@ posts.forEach((post)=>{
                 </div>
                 <div class="post-meta__data">
                 <div class="post-meta__author">${post.author.name}</div>
-                <div class="post-meta__time">4 mesi fa</div>
+                <div class="post-meta__time">${europeanDate}</div>
                 </div>                    
                 </div>
                 </div>
@@ -107,9 +117,6 @@ posts.forEach((post)=>{
                 `
                 
             })
-
-
-
 
 
 for(let i = 1; i <= posts.length; i++){
