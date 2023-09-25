@@ -55,7 +55,7 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
-
+const likedList = []
 
 const postsContainer = document.getElementById('container');
 
@@ -88,7 +88,7 @@ posts.forEach((post)=>{
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="like-counter-${post.id}" class="js-likes-counter">80</b> persone
+                Piace a <b id="like-counter-${post.id}" class="js-likes-counter">${post.likes}</b> persone
             </div>
         </div> 
     </div>            
@@ -112,6 +112,7 @@ for(let i = 1; i <= posts.length; i++){
         btnLike.classList.add('like-button--liked');
         likeCounter.innerHTML ++;
         this.removeEventListener('click', likeClick);
+        
     }
 }
 

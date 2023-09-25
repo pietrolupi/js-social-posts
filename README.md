@@ -29,3 +29,5 @@ Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 * organizzo la stampa dei post tramite un ciclo forEach
 * seleziono i bottoni e il numero di like da variare al click
 * aggiungo un eventListener che al click cambi il colore del pulsante e ++numero dei like
+* creo una lista liked posts 
+* al click del bottone like pusho l'id del post a cui ho messo like nell'array creato
